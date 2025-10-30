@@ -39,6 +39,68 @@
     /* Extra letter spacing for bold/brand text */
     .tracking-more { letter-spacing: 0.14em; }
 
+    /* Skills: card glass effect, progress bar, and dropdown */
+    .skill-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform .18s ease, box-shadow .18s ease;
+      will-change: transform;
+      padding: 1.5rem;
+      border-radius: 1rem;
+    }
+    .skill-card:hover { 
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(2,6,23,0.08);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .skill-bar { 
+      background: rgba(15,23,42,0.1);
+      height: 8px;
+      border-radius: 9999px;
+      overflow: hidden;
+      margin: 0; /* inline layout: no vertical margin */
+    }
+    .skill-bar > span { 
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg,#60a5fa,#7c3aed);
+      border-radius: 9999px;
+      transition: width 0.5s ease;
+    }
+    .skill-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .skill-card.active .skill-details {
+      max-height: 500px;
+    }
+    .skill-card .dropdown-icon {
+      transition: transform 0.3s ease;
+    }
+    .skill-card.active .dropdown-icon {
+      transform: rotate(180deg);
+    }
+    /* Skill action buttons (certifications / projects) */
+    .skill-actions .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.65rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #0f172a;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(2,6,23,0.06);
+      box-shadow: 0 4px 10px rgba(2,6,23,0.04);
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .skill-actions .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(2,6,23,0.06); }
+    .skill-actions .btn.secondary { background: transparent; color: #475569; border: 1px solid rgba(71,85,105,0.08); }
+
     /* Responsive tweaks */
     @media (max-width: 640px) {
       /* reduce tracking on small screens so the brand fits neatly */
@@ -109,6 +171,9 @@
     <ul id="navMenu" class="hidden md:flex flex-col md:flex-row absolute md:static right-6 top-full md:top-auto mt-3 md:mt-0 bg-white/90 md:bg-transparent sm:glass md:!border-0 p-4 md:p-0 rounded-xl md:rounded-none shadow-lg md:shadow-none w-44 md:w-auto gap-4 md:gap-6 text-lg font-medium z-50">
       <li><a href="#home" class="nav-link">Home</a></li>
       <li><a href="#timeline" class="nav-link">Timeline</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#education" class="nav-link">Education</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
       <li><a href="#projects" class="nav-link">Projects</a></li>
     </ul>
   </nav>
@@ -147,26 +212,153 @@
   <!-- ===== Skills Section ===== -->
   <section id="skills" class="py-16 bg-white text-center">
     <h3 class="text-3xl font-bold mb-10 text-gray-800">Skills</h3>
-    <div class="flex flex-wrap justify-center gap-8">
-      <div class="flex flex-col items-center w-28">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" class="w-12 h-12 mb-2" />
-        <span>HTML5</span>
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8 items-start">
+        <!-- Skill card: logo + inline progress + dropdown -->
+        <div class="skill-card">
+          <div class="flex items-center">
+            <div class="flex items-center gap-4">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" class="w-12 h-12" alt="HTML5" />
+              <div class="font-medium">HTML5</div>
+            </div>
+            <div class="flex-1 mx-4">
+              <div class="skill-bar"><span style="width:92%"></span></div>
+            </div>
+            <button class="ml-2 p-1" aria-expanded="false" onclick="toggleSkill(this.closest('.skill-card'))">
+              <svg class="w-5 h-5 dropdown-icon text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+          </div>
+          <div class="skill-details text-sm text-gray-600">
+            <p class="mt-2">Expertise in semantic HTML5, accessibility best practices, and modern markup structures.</p>
+            <div class="skill-actions flex gap-3 mt-3">
+              <a href="#certifications" class="btn" title="View certifications">Certifications</a>
+              <a href="#projects" class="btn secondary" title="Related projects">Projects</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="flex items-center">
+            <div class="flex items-center gap-4">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" class="w-12 h-12" alt="CSS3" />
+              <div class="font-medium">CSS3</div>
+            </div>
+            <div class="flex-1 mx-4">
+              <div class="skill-bar"><span style="width:88%"></span></div>
+            </div>
+            <button class="ml-2 p-1" aria-expanded="false" onclick="toggleSkill(this.closest('.skill-card'))">
+              <svg class="w-5 h-5 dropdown-icon text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+          </div>
+          <div class="skill-details text-sm text-gray-600">
+            <p class="mt-2">Strong understanding of layouts, animations, and responsive design principles.</p>
+            <div class="skill-actions flex gap-3 mt-3">
+              <a href="#certifications" class="btn" title="View certifications">Certifications</a>
+              <a href="#projects" class="btn secondary" title="Related projects">Projects</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="flex items-center">
+            <div class="flex items-center gap-4">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" class="w-12 h-12" alt="JavaScript" />
+              <div class="font-medium">JavaScript</div>
+            </div>
+            <div class="flex-1 mx-4">
+              <div class="skill-bar"><span style="width:82%"></span></div>
+            </div>
+            <button class="ml-2 p-1" aria-expanded="false" onclick="toggleSkill(this.closest('.skill-card'))">
+              <svg class="w-5 h-5 dropdown-icon text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+          </div>
+          <div class="skill-details text-sm text-gray-600">
+            <p class="mt-2">Experience with modern ES6+, DOM manipulation, and async programming.</p>
+            <div class="skill-actions flex gap-3 mt-3">
+              <a href="#certifications" class="btn" title="View certifications">Certifications</a>
+              <a href="#projects" class="btn secondary" title="Related projects">Projects</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="flex items-center">
+            <div class="flex items-center gap-4">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-12 h-12" alt="Python" />
+              <div class="font-medium">Python</div>
+            </div>
+            <div class="flex-1 mx-4">
+              <div class="skill-bar"><span style="width:78%"></span></div>
+            </div>
+            <button class="ml-2 p-1" aria-expanded="false" onclick="toggleSkill(this.closest('.skill-card'))">
+              <svg class="w-5 h-5 dropdown-icon text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+          </div>
+          <div class="skill-details text-sm text-gray-600">
+            <p class="mt-2">Proficient in data analysis, automation, and backend development.</p>
+            <div class="skill-actions flex gap-3 mt-3">
+              <a href="#certifications" class="btn" title="View certifications">Certifications</a>
+              <a href="#projects" class="btn secondary" title="Related projects">Projects</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="flex items-center">
+            <div class="flex items-center gap-4">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" class="w-12 h-12" alt="Tailwind" />
+              <div class="font-medium">Tailwind</div>
+            </div>
+            <div class="flex-1 mx-4">
+              <div class="skill-bar"><span style="width:86%"></span></div>
+            </div>
+            <button class="ml-2 p-1" aria-expanded="false" onclick="toggleSkill(this.closest('.skill-card'))">
+              <svg class="w-5 h-5 dropdown-icon text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+          </div>
+          <div class="skill-details text-sm text-gray-600">
+            <p class="mt-2">Advanced utility-first CSS and component design patterns.</p>
+            <div class="skill-actions flex gap-3 mt-3">
+              <a href="#certifications" class="btn" title="View certifications">Certifications</a>
+              <a href="#projects" class="btn secondary" title="Related projects">Projects</a>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="flex flex-col items-center w-28">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" class="w-12 h-12 mb-2" />
-        <span>CSS3</span>
+    </div>
+  </section>
+
+  <!-- ===== Education Section (initial) ===== -->
+  <section id="education" class="py-16 bg-gray-50 text-center">
+    <h3 class="text-3xl font-bold mb-6 text-gray-800">Education</h3>
+    <div class="max-w-3xl mx-auto px-4 text-left">
+      <div class="bg-white rounded-2xl p-6 shadow-sm">
+        <h4 class="font-semibold text-xl">Bachelor of Science in Computer Science</h4>
+        <p class="text-sm text-gray-600">University Name — 2020 &ndash; 2024</p>
+        <p class="mt-3 text-gray-700">Focused on software engineering, data structures & algorithms, and web development. Coursework included databases, OS, and machine learning.</p>
       </div>
-      <div class="flex flex-col items-center w-28">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" class="w-12 h-12 mb-2" />
-        <span>JavaScript</span>
-      </div>
-      <div class="flex flex-col items-center w-28">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-12 h-12 mb-2" />
-        <span>Python</span>
-      </div>
-      <div class="flex flex-col items-center w-28">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" class="w-12 h-12 mb-2" />
-        <span>Tailwind</span>
+    </div>
+  </section>
+
+  <!-- ===== Experience Section (initial) ===== -->
+  <section id="experience" class="py-16 bg-white text-center">
+    <h3 class="text-3xl font-bold mb-6 text-gray-800">Experience</h3>
+    <div class="max-w-3xl mx-auto px-4 text-left">
+      <div class="bg-gray-50 rounded-2xl p-6 shadow-sm">
+        <h4 class="font-semibold text-xl">Frontend Intern — Example Co.</h4>
+        <p class="text-sm text-gray-600">June 2023 &ndash; Dec 2023</p>
+        <p class="mt-3 text-gray-700">Worked on building accessible UI components, improving performance, and implementing responsive layouts for customer-facing web applications.</p>
       </div>
     </div>
   </section>
@@ -271,7 +463,13 @@
       });
     })();
 
-    
+    // Skills dropdown toggle (also update aria-expanded on the toggle button)
+    function toggleSkill(card) {
+      const isActive = card.classList.toggle('active');
+      // find the button inside the card and update aria-expanded for accessibility
+      const btn = card.querySelector('button[aria-expanded]');
+      if (btn) btn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+    }
   </script>
 
 </body>
