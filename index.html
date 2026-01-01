@@ -101,6 +101,120 @@
     .skill-actions .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(2,6,23,0.06); }
     .skill-actions .btn.secondary { background: transparent; color: #475569; border: 1px solid rgba(71,85,105,0.08); }
 
+    /* Badge-style skills (used for Soft Skills, Tools, Programming Languages, etc.) */
+    .skill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease, background .12s ease;
+      cursor: default;
+    }
+    .skill-badge:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(2,6,23,0.08);
+      background: rgba(255,255,255,0.9);
+    }
+    .skill-badge:active { transform: translateY(-2px); }
+
+    /* Skill popup: glass effect floating window */
+    .skill-popup {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-12px);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      min-width: 250px;
+      max-width: 280px;
+      box-shadow: 0 8px 32px rgba(2,6,23,0.12);
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .skill-card.popup-active .skill-popup {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(-16px);
+    }
+    .skill-popup::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: rgba(255, 255, 255, 0.95);
+    }
+    .skill-popup h5 {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .skill-popup p {
+      font-size: 0.8rem;
+      color: #475569;
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+    }
+    .skill-popup-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .skill-popup-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.35rem 0.6rem;
+      border-radius: 0.375rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      background: rgba(59, 130, 246, 0.1);
+      color: #2563eb;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      transition: all 0.15s ease;
+    }
+    .skill-popup-links a:hover {
+      background: rgba(59, 130, 246, 0.2);
+      transform: translateY(-1px);
+    }
+
+    /* Floating popup used for inline badges (positioned via JS) */
+    .badge-popup {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 0.75rem;
+      padding: 0.85rem;
+      min-width: 220px;
+      max-width: 320px;
+      box-shadow: 0 12px 40px rgba(2,6,23,0.12);
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transform-origin: center bottom;
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+    .badge-popup.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(-6px);
+    }
+    .badge-popup h5{ margin: 0 0 0.35rem 0; font-size: .95rem; color:#0f172a; }
+    .badge-popup p{ margin:0; font-size: .80rem; color:#475569; line-height:1.4 }
+
     /* Responsive tweaks */
     @media (max-width: 640px) {
       /* reduce tracking on small screens so the brand fits neatly */
@@ -240,136 +354,54 @@
           maintainable front-end architecture. I enjoy turning concepts into polished,
           user-friendly products using modern tools and thoughtful design.
         </p>
-      </div>
-    </div>
-  </section>
+        </div>
+      </section>
 
   <!-- ===== Skills Section ===== -->
   <section id="skills" class="py-16 bg-white text-center">
     <h3 class="text-3xl font-bold mb-10 text-gray-800">Skills</h3>
     <div class="max-w-4xl mx-auto px-4">
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8 items-start">
-        <!-- Skill card: logo + inline progress + dropdown -->
-        <div class="skill-card">
-          <div class="flex items-center">
-            <div class="flex items-center gap-4">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" class="w-12 h-12" alt="HTML5" />
-              <div class="font-medium">HTML5</div>
-            </div>
-            <div class="flex-1 mx-4">
-              <div class="skill-bar"><span style="width:92%"></span></div>
-            </div>
-            <button class="ml-2 p-1" aria-expanded="false" onclick="toggleSkill(this.closest('.skill-card'))">
-              <svg class="w-5 h-5 dropdown-icon text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </button>
-          </div>
-          <div class="skill-details text-sm text-gray-600">
-            <p class="mt-2">Expertise in semantic HTML5, accessibility best practices, and modern markup structures.</p>
-            <div class="skill-actions flex gap-3 mt-3">
-              <a href="#certifications" class="btn" title="View certifications">Certifications</a>
-              <a href="#projects" class="btn secondary" title="Related projects">Projects</a>
-            </div>
-          </div>
-        </div>
+      <!-- Programming Languages (badge style like Soft Skills) -->
+      <h4 class="text-2xl font-semibold mb-4 text-gray-800 text-left">Programming Languages</h4>
+      <div class="flex flex-wrap gap-3 items-center mb-12">
+        <span class="skill-badge bg-indigo-50 text-indigo-700">HTML5</span>
+        <span class="skill-badge bg-sky-50 text-sky-700">CSS3</span>
+        <span class="skill-badge bg-yellow-50 text-yellow-700">JavaScript</span>
+        <span class="skill-badge bg-emerald-50 text-emerald-700">Python</span>
+        <span class="skill-badge bg-violet-50 text-violet-700">Tailwind CSS</span>
+      </div>
 
-        <div class="skill-card">
-          <div class="flex items-center">
-            <div class="flex items-center gap-4">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" class="w-12 h-12" alt="CSS3" />
-              <div class="font-medium">CSS3</div>
-            </div>
-            <div class="flex-1 mx-4">
-              <div class="skill-bar"><span style="width:88%"></span></div>
-            </div>
-            <button class="ml-2 p-1" aria-expanded="false" onclick="toggleSkill(this.closest('.skill-card'))">
-              <svg class="w-5 h-5 dropdown-icon text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </button>
-          </div>
-          <div class="skill-details text-sm text-gray-600">
-            <p class="mt-2">Strong understanding of layouts, animations, and responsive design principles.</p>
-            <div class="skill-actions flex gap-3 mt-3">
-              <a href="#certifications" class="btn" title="View certifications">Certifications</a>
-              <a href="#projects" class="btn secondary" title="Related projects">Projects</a>
-            </div>
-          </div>
-        </div>
+      <!-- Soft Skills Category -->
+      <h4 class="text-2xl font-semibold mt-12 mb-4 text-gray-800 text-left">Soft Skills</h4>
+      <div class="flex flex-wrap gap-2 mb-12">
+        <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">Communication</span>
+        <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">Teamwork</span>
+        <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">Problem Solving</span>
+        <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">Time Management</span>
+        <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">Adaptability</span>
+      </div>
 
-        <div class="skill-card">
-          <div class="flex items-center">
-            <div class="flex items-center gap-4">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" class="w-12 h-12" alt="JavaScript" />
-              <div class="font-medium">JavaScript</div>
-            </div>
-            <div class="flex-1 mx-4">
-              <div class="skill-bar"><span style="width:82%"></span></div>
-            </div>
-            <button class="ml-2 p-1" aria-expanded="false" onclick="toggleSkill(this.closest('.skill-card'))">
-              <svg class="w-5 h-5 dropdown-icon text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </button>
-          </div>
-          <div class="skill-details text-sm text-gray-600">
-            <p class="mt-2">Experience with modern ES6+, DOM manipulation, and async programming.</p>
-            <div class="skill-actions flex gap-3 mt-3">
-              <a href="#certifications" class="btn" title="View certifications">Certifications</a>
-              <a href="#projects" class="btn secondary" title="Related projects">Projects</a>
-            </div>
-          </div>
-        </div>
+      <!-- Technologies & Frameworks Category -->
+      <h4 class="text-2xl font-semibold mb-4 text-gray-800 text-left">Technologies &amp; Frameworks</h4>
+      <div class="flex flex-wrap gap-2 mb-12">
+        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">HTML5</span>
+        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">CSS3</span>
+        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">JavaScript</span>
+        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">Tailwind CSS</span>
+        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">React</span>
+        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">Node.js</span>
+        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">Django</span>
+      </div>
 
-        <div class="skill-card">
-          <div class="flex items-center">
-            <div class="flex items-center gap-4">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-12 h-12" alt="Python" />
-              <div class="font-medium">Python</div>
-            </div>
-            <div class="flex-1 mx-4">
-              <div class="skill-bar"><span style="width:78%"></span></div>
-            </div>
-            <button class="ml-2 p-1" aria-expanded="false" onclick="toggleSkill(this.closest('.skill-card'))">
-              <svg class="w-5 h-5 dropdown-icon text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </button>
-          </div>
-          <div class="skill-details text-sm text-gray-600">
-            <p class="mt-2">Proficient in data analysis, automation, and backend development.</p>
-            <div class="skill-actions flex gap-3 mt-3">
-              <a href="#certifications" class="btn" title="View certifications">Certifications</a>
-              <a href="#projects" class="btn secondary" title="Related projects">Projects</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="flex items-center">
-            <div class="flex items-center gap-4">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" class="w-12 h-12" alt="Tailwind" />
-              <div class="font-medium">Tailwind</div>
-            </div>
-            <div class="flex-1 mx-4">
-              <div class="skill-bar"><span style="width:86%"></span></div>
-            </div>
-            <button class="ml-2 p-1" aria-expanded="false" onclick="toggleSkill(this.closest('.skill-card'))">
-              <svg class="w-5 h-5 dropdown-icon text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </button>
-          </div>
-          <div class="skill-details text-sm text-gray-600">
-            <p class="mt-2">Advanced utility-first CSS and component design patterns.</p>
-            <div class="skill-actions flex gap-3 mt-3">
-              <a href="#certifications" class="btn" title="View certifications">Certifications</a>
-              <a href="#projects" class="btn secondary" title="Related projects">Projects</a>
-            </div>
-          </div>
-        </div>
-
+      <!-- Tools Category -->
+      <h4 class="text-2xl font-semibold mb-4 text-gray-800 text-left">Tools</h4>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">Git</span>
+        <span class="px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">GitHub</span>
+        <span class="px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">VS Code</span>
+        <span class="px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">Docker</span>
+        <span class="px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">Figma</span>
+        <span class="px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">Postman</span>
       </div>
     </div>
   </section>
@@ -435,6 +467,46 @@
     </div>
   </section>
 
+  <!-- ===== Awards & Achievements Section ===== -->
+  <section id="awards" class="py-16 bg-white text-center">
+    <h3 class="text-3xl font-bold mb-6 text-gray-800">Awards &amp; Achievements</h3>
+    <div class="max-w-3xl mx-auto px-4 text-left">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <h4 class="font-semibold text-lg">Dean's List — University Name</h4>
+          <p class="text-sm text-gray-600">2023</p>
+          <p class="mt-3 text-gray-700">Recognized for outstanding academic performance and consistent top grades across the Computer Science program.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <h4 class="font-semibold text-lg">Hackathon Winner — Local Hack Day</h4>
+          <p class="text-sm text-gray-600">2022</p>
+          <p class="mt-3 text-gray-700">Led a small team to build an accessibility-focused web tool and won Best UX award.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Extracurricular Section ===== -->
+  <section id="extracurricular" class="py-16 bg-gray-50 text-center">
+    <h3 class="text-3xl font-bold mb-6 text-gray-800">Extracurricular Activities</h3>
+    <div class="max-w-3xl mx-auto px-4 text-left">
+      <div class="space-y-4">
+        <div class="bg-white rounded-2xl p-4 shadow-sm">
+          <h4 class="font-semibold">Tech Club — President</h4>
+          <p class="text-sm text-gray-600">2022 &ndash; 2024</p>
+          <p class="mt-2 text-gray-700">Organized weekly workshops on web development, mentored junior members, and coordinated campus hackathons.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-4 shadow-sm">
+          <h4 class="font-semibold">Volunteer Tutor — Community Center</h4>
+          <p class="text-sm text-gray-600">2021 &ndash; Present</p>
+          <p class="mt-2 text-gray-700">Provide free tutoring in programming fundamentals and help students prepare for university entrance exams.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Timeline Section ===== -->
   <section id="timeline" class="py-16 bg-white text-center">
     <h3 class="text-3xl font-bold mb-10 text-gray-800">Timeline</h3>
@@ -477,6 +549,11 @@
   </footer>
 
   <script>
+    // Detect if device is mobile
+    function isMobileDevice() {
+      return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
     // Mobile nav toggle: show/hide #navMenu, update aria, close on outside click or link click, handle Escape
     (function () {
       const btn = document.getElementById('navToggle');
@@ -518,13 +595,117 @@
       });
     })();
 
-    // Skills dropdown toggle (also update aria-expanded on the toggle button)
-    function toggleSkill(card) {
-      const isActive = card.classList.toggle('active');
-      // find the button inside the card and update aria-expanded for accessibility
+    // Skills popup toggle: handle hover on desktop, click on mobile
+    function toggleSkillPopup(card) {
+      const isActive = card.classList.toggle('popup-active');
       const btn = card.querySelector('button[aria-expanded]');
       if (btn) btn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
     }
+
+    // Close popups on outside click (mobile)
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.skill-card')) {
+        document.querySelectorAll('.skill-card.popup-active').forEach(card => {
+          card.classList.remove('popup-active');
+          const btn = card.querySelector('button[aria-expanded]');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+
+    // Skill cards: add hover listeners on desktop
+    if (!isMobileDevice()) {
+      document.querySelectorAll('.skill-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.classList.add('popup-active');
+          const btn = card.querySelector('button[aria-expanded]');
+          if (btn) btn.setAttribute('aria-expanded', 'true');
+        });
+        card.addEventListener('mouseleave', () => {
+          card.classList.remove('popup-active');
+          const btn = card.querySelector('button[aria-expanded]');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // Skills dropdown toggle (for expanded details, separate from popup)
+    function toggleSkill(card) {
+      const isActive = card.classList.toggle('active');
+      const btn = card.querySelector('button[aria-expanded]');
+      if (btn) btn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+    }
+
+    /* Badge popups: single floating element shown for inline badges
+       - Hover/focus on desktop shows popup
+       - Click on mobile toggles popup
+       - Uses element text as title and a small auto description (customize with data-desc)
+    */
+    (function () {
+      const popup = document.createElement('div');
+      popup.className = 'badge-popup';
+      document.body.appendChild(popup);
+      let visibleFor = null;
+
+      function showBadge(el) {
+        const title = (el.dataset.title || el.textContent || '').trim();
+        const desc = (el.dataset.desc || `Experience working with ${title}.`).trim();
+        popup.innerHTML = `<h5>${title}</h5><p>${desc}</p>`;
+        // place above the element, centered
+        const rect = el.getBoundingClientRect();
+        // set width constraints similar to CSS: use computed width to help center
+        const popupWidth = Math.min(320, Math.max(220, rect.width * 2));
+        popup.style.width = popupWidth + 'px';
+        const left = window.scrollX + rect.left + (rect.width / 2) - (popupWidth / 2);
+        const top = window.scrollY + rect.top - popup.offsetHeight - 12;
+        popup.style.left = Math.max(8, left) + 'px';
+        popup.style.top = Math.max(8, top) + 'px';
+        popup.classList.add('show');
+        visibleFor = el;
+      }
+
+      function hideBadge() {
+        popup.classList.remove('show');
+        visibleFor = null;
+      }
+
+      const mobile = isMobileDevice();
+      // Select badges across the Skills section (both .skill-badge and rounded-full spans)
+      const badgeSelector = '#skills .skill-badge, #skills span.rounded-full';
+      document.querySelectorAll(badgeSelector).forEach(el => {
+        // ensure keyboard focusable
+        if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+        if (!el.dataset.title) el.dataset.title = el.textContent.trim();
+        if (!el.dataset.desc) el.dataset.desc = `Experience working with ${el.dataset.title}.`;
+
+        if (mobile) {
+          el.style.cursor = 'pointer';
+          el.addEventListener('click', (ev) => {
+            ev.stopPropagation();
+            if (visibleFor === el) hideBadge(); else showBadge(el);
+          });
+        } else {
+          el.addEventListener('mouseenter', () => showBadge(el));
+          el.addEventListener('mouseleave', () => hideBadge());
+          el.addEventListener('focus', () => showBadge(el));
+          el.addEventListener('blur', () => hideBadge());
+        }
+      });
+
+      // Close when clicking anywhere else
+      document.addEventListener('click', (e) => {
+        if (visibleFor && !e.target.closest('.badge-popup') && !e.target.closest('#skills')) {
+          hideBadge();
+        }
+      });
+      // Close on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && visibleFor) hideBadge();
+      });
+      // Reposition popup on resize/scroll if visible
+      window.addEventListener('scroll', () => { if (visibleFor) showBadge(visibleFor); }, { passive: true });
+      window.addEventListener('resize', () => { if (visibleFor) showBadge(visibleFor); });
+    })();
   </script>
 
 </body>
