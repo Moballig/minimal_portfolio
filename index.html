@@ -497,22 +497,49 @@
   <!-- ===== Projects Section ===== -->
   <section id="projects" class="py-16 bg-transparent text-center">
     <h3 class="text-3xl font-bold mb-10 text-gray-800">Projects</h3>
-    <div class="flex flex-wrap justify-center gap-8 px-6">
-      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-72 hover:-translate-y-1 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2">Juice Lab</h4>
-        <p class="text-gray-600 text-sm mb-3">A small business management Android app with multi-device sync and cloud backup, built with Kotlin.</p>
+    <div class="flex flex-col items-center gap-8 px-6 max-w-4xl mx-auto text-left">
+      <!-- JuiceLab -->
+      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-full hover:-translate-y-1 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold mb-2">JuiceLab</h4>
+        <p class="text-gray-700 text-sm mb-4">A specialized POS and management application designed for modern juice bars. It streamlines the entire process from customer intake to kitchen fulfillment and sales reporting, all wrapped in a beautiful, intuitive "Bento-style" interface.</p>
+        <ul class="text-gray-600 text-sm list-disc pl-5 mb-4 space-y-1">
+          <li><strong>Kitchen Operations:</strong> Live Queue, Dynamic Workflow, FIFO Sorting, and Rush Level Indicators.</li>
+          <li><strong>Smart Ordering:</strong> Tiered Pricing, Quick Selection, Customer Profiles, and Real-time Search.</li>
+          <li><strong>Business Intelligence:</strong> Sales Dashboard, Analytics, Dynamic Menu, and Tagging.</li>
+        </ul>
+        <p class="text-gray-500 text-xs"><strong>Tech Stack:</strong> Kotlin, Jetpack Compose, Room SQLite + Supabase, MVVM, Coroutines & Flow</p>
       </div>
-      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-72 hover:-translate-y-1 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2">Chat Bot</h4>
-        <p class="text-gray-600 text-sm mb-3">A Django-based AI chatbot that answers questions about One Piece.</p>
+      <!-- DeskBuddy -->
+      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-full hover:-translate-y-1 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold mb-2">DeskBuddy</h4>
+        <p class="text-gray-700 text-sm mb-4">A Qt6 desktop application for interacting with and managing an ESP32 device over local networks and Bluetooth.</p>
+        <ul class="text-gray-600 text-sm list-disc pl-5 space-y-1">
+          <li>Scans for nearby Bluetooth devices and connects to ESP32 over RFCOMM.</li>
+          <li>Provisions the ESP32 onto local WiFi by sending credentials as JSON packets over Bluetooth.</li>
+          <li>Sends alerts (dev errors, system vitals, wellness reminders) over TCP or WebSocket.</li>
+          <li>Controls NekoBot (ESP32 robot) via TCP commands with real-time monitoring and an interactive UI.</li>
+        </ul>
       </div>
-      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-72 hover:-translate-y-1 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2">Desk Buddy</h4>
-        <p class="text-gray-600 text-sm mb-3">An ESP32-based robotics project that shows notifications, timers, and different emotions based on the environment and user activity.</p>
-      </div>
-      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-72 hover:-translate-y-1 hover:shadow-xl transition">
+      <!-- Employee Management System -->
+      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-full hover:-translate-y-1 hover:shadow-xl transition">
         <h4 class="text-xl font-semibold mb-2">Employee Management System</h4>
-        <p class="text-gray-600 text-sm mb-3">A file-based employee management system built using the C programming language.</p>
+        <p class="text-gray-700 text-sm mb-4">A simple, file-based Employee Management System built using the C programming language with a command-line interface.</p>
+        <ul class="text-gray-600 text-sm list-disc pl-5 space-y-1">
+          <li><strong>Roles & Access Control:</strong> HR (Full access) and Admin (View access + limited updates).</li>
+          <li><strong>Secure Authentication:</strong> Password-protected login with session management and secure logout.</li>
+          <li><strong>Features:</strong> Add, view, update, delete employee records, mark attendance, and calculate monthly salary (based on attendance, bonuses, and deductions).</li>
+          <li><strong>Storage:</strong> Persistent data storage using file handling.</li>
+        </ul>
+      </div>
+      <!-- Blog Backend -->
+      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-full hover:-translate-y-1 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold mb-2">Blog Backend API</h4>
+        <p class="text-gray-700 text-sm mb-4">A robust Django REST Framework backend designed to manage and serve blog content. It powers a dynamic portfolio blog section and a React-based Admin Editor.</p>
+        <ul class="text-gray-600 text-sm list-disc pl-5 space-y-1">
+          <li><strong>Public API endpoints:</strong> Exposes lightweight endpoints for listing blog posts (with summaries) and fetching full details by slug for fast loading.</li>
+          <li><strong>Content Management:</strong> Provides secure endpoints for creating, updating, and managing blog posts with rich-text formatting (math, code, images).</li>
+          <li><strong>Media Integration:</strong> Seamlessly handles image uploads, utilizing external services like Telegram for scalable cover image storage.</li>
+        </ul>
       </div>
     </div>
   </section>
