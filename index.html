@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MOBALLIG | Portfolio</title>
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Poppins', sans-serif; background: #ffffff; position: relative; }
+    body { font-family: 'Poppins', sans-serif; background: #fdfbf7; position: relative; color: #1f2937; }
+    .font-serif { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
     
     /* Graph paper background */
     .graph-background {
@@ -293,10 +294,11 @@
   </style>
 </head>
   <body class="text-gray-800">
-    <!-- Graph Background Layout -->
-    <div class="graph-background"></div>
-    <div class="glow-blob top-[-300px] right-[-300px]"></div>
-    <div class="glow-blob bottom-[-300px] left-[-300px]"></div>
+  <div class="graph-background"></div>
+  <!-- Graph Background Layout -->
+    
+    
+    
 
     <!-- Sticky Social Links (desktop only) -->
   <div class="hidden md:flex flex-col gap-2 fixed left-4 top-1/2 -translate-y-1/2 z-50">
@@ -321,7 +323,7 @@
     </div>
 
   <!-- ===== Navbar ===== -->
-  <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[70%] glass rounded-2xl shadow-lg flex justify-between items-center px-6 py-3 z-50">
+  <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[70%] bg-white/95 backdrop-blur-md rounded-full shadow-sm border border-gray-200/60 flex justify-between items-center px-6 py-3 z-50">
     <h1 class="text-2xl font-bold text-gray-800 tracking-widest tracking-more">MOBALLIG</h1>
 
     <!-- Mobile hamburger (visible on small screens) -->
@@ -346,7 +348,7 @@
   <!-- ===== Hero Section ===== -->
   <section id="home" class="relative min-h-screen flex flex-col items-center md:items-start justify-center pt-12 md:pt-0">
     <!-- White background -->
-    <div class="absolute inset-0 -z-20 bg-white"></div>
+    <div class="absolute inset-0 -z-20 bg-[#fdfbf7]"></div>
     
     <!-- Background image layer - hidden on mobile -->
     <div class="absolute inset-0 -z-10 hidden md:block">
@@ -373,10 +375,11 @@
       </a>    
    </div>
   </section>
+  <div class="max-w-5xl mx-auto border-t border-gray-200/80 my-8"></div>
 
   <!-- ===== About Section ===== -->
-  <section id="about" class="about-section bg-amber-50/50">
-    <div class="about-card px-4 py-6">
+  <section id="about" class="about-section bg-transparent">
+    <div class="about-card px-4 py-6 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
       <div class="about-label md:w-1/4 text-3xl md:text-5xl text-blue-600 tracking-more mb-4 md:mb-0">ABOUT</div>
       <div class="about-content md:flex-1 text-gray-700 text-base md:text-lg">
         <p>
@@ -386,10 +389,19 @@ My work includes developing web applications, REST APIs, and AI-powered solution
         </p>
         </div>
       </section>
+  <div class="max-w-5xl mx-auto border-t border-gray-200/80 my-8"></div>
 
   <!-- ===== Skills Section ===== -->
   <section id="skills" class="py-16 bg-transparent text-center">
-    <h3 class="text-3xl font-bold mb-10 text-gray-800">Skills</h3>
+    <div class="max-w-5xl mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end gap-6 md:gap-12 text-left">
+      <div class="md:w-1/3">
+        <span class="text-xs font-semibold text-gray-400 tracking-widest uppercase block mb-3">02 — TECHNICAL</span>
+        <h3 class="text-5xl font-serif text-gray-900 leading-none tracking-tight">My <span class="italic text-gray-600">skills.</span></h3>
+      </div>
+      <div class="md:w-2/3">
+        <p class="text-gray-500 text-base leading-relaxed">Languages, frameworks, and soft skills I have acquired over the years.</p>
+      </div>
+    </div>
     <div class="max-w-4xl mx-auto px-4 text-left">
       <h4 class="text-2xl font-semibold mb-4 text-gray-800">Technical Skills &amp; Frameworks</h4>
       <div class="flex flex-wrap gap-3 items-center mb-10">
@@ -438,98 +450,115 @@ My work includes developing web applications, REST APIs, and AI-powered solution
       </div>
     </div>
   </section>
+  <div class="max-w-5xl mx-auto border-t border-gray-200/80 my-8"></div>
 
-  <!-- ===== Education Section ===== -->
-  <section id="education" class="py-16 bg-amber-50/50 text-center">
-    <h3 class="text-3xl font-bold mb-6 text-gray-800">Education</h3>
-    <div class="max-w-3xl mx-auto px-4 text-left">
-      <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm">
-        <h4 class="font-semibold text-xl">Bachelor's in Software Engineering</h4>
-        <p class="text-sm text-gray-600">Daffodil International University — 07/2024 &ndash; 07/2028</p>
-        <p class="mt-3 text-gray-700">Focused on software engineering fundamentals, problem solving, data structures, algorithms, databases, and practical development workflows.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== Experience Section ===== -->
-  <section id="experience" class="py-16 bg-transparent text-center">
-    <h3 class="text-3xl font-bold mb-6 text-gray-800">Experience</h3>
-    <div class="max-w-3xl mx-auto px-4 text-left">
-      <div class="bg-gray-50/20 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm">
-        <h4 class="font-semibold text-xl">Instructor &amp; Mentor — DIU Software Engineering Club</h4>
-        <p class="text-sm text-gray-600">2025 &ndash; Present</p>
-        <ul class="mt-3 text-gray-700 space-y-2 list-disc list-inside">
-          <li>Conducted introductory programming logic and problem-solving sessions for junior students.</li>
-          <li>Mentored students in competitive programming and structured problem-solving approaches.</li>
-          <li>Helped build a stronger learning culture through hands-on guidance and support.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
   <!-- ===== Certifications Section ===== -->
-  <section id="certifications" class="py-16 bg-amber-50/50 text-center">
-    <h3 class="text-3xl font-bold mb-6 text-gray-800">Certifications</h3>
-    <div class="max-w-3xl mx-auto px-4 text-left">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Agile -->
-        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition">
-          <div>
-            <h4 class="font-semibold text-lg text-gray-900">Professional Diploma in Agile and Project Management</h4>
-            <p class="mt-3 text-sm text-gray-700 leading-relaxed">Mastered core agile methodologies including Scrum and Kanban. Gained practical knowledge in sprint planning, backlog grooming, risk management, and effective team coordination to deliver projects successfully.</p>
+  <section id="certifications" class="py-16 bg-transparent text-center">
+    <div class="max-w-5xl mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end gap-6 md:gap-12 text-left">
+      <div class="md:w-1/3">
+        <span class="text-xs font-semibold text-gray-400 tracking-widest uppercase block mb-3">05 — CERTIFICATIONS</span>
+        <h3 class="text-5xl font-serif text-gray-900 leading-none tracking-tight">Professional <br/><span class="italic text-gray-600">certifications.</span></h3>
+      </div>
+      <div class="md:w-2/3">
+        <p class="text-gray-500 text-base leading-relaxed">Credentials demonstrating proficiency in agile methodologies, algorithms, and languages.</p>
+      </div>
+    </div>
+    <div class="flex flex-col items-center gap-8 px-6 max-w-4xl mx-auto text-left">
+      <!-- Agile -->
+      <div class="bg-white border border-gray-200 p-8 w-full relative group hover:border-gray-300 hover:-translate-y-2 hover:shadow-xl hover:border-gray-300 transition-all duration-300">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">CT/01</span>
+          <div class="flex h-1 w-12">
+            <div class="h-full w-1/2 bg-cyan-400"></div>
+            <div class="h-full w-1/2 bg-purple-300"></div>
           </div>
-          <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-edd79d03-19df-4b1c-8340-fbe9901cabb5.pdf" target="_blank" class="mt-4 inline-flex items-center gap-1 text-blue-600 font-medium text-sm hover:underline">
-            View Credential
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-          </a>
         </div>
+        <h4 class="text-3xl font-serif mb-4 text-gray-900 group-hover:text-blue-700 transition-colors">Professional Diploma in Agile and Project Management</h4>
+        <p class="text-gray-700 text-base leading-relaxed mb-6">Mastered core agile methodologies including Scrum and Kanban. Gained practical knowledge in sprint planning, backlog grooming, risk management, and effective team coordination to deliver projects successfully.</p>
+        <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-edd79d03-19df-4b1c-8340-fbe9901cabb5.pdf" target="_blank" class="inline-flex items-center gap-1 text-gray-900 font-medium text-sm hover:text-blue-600 border-b border-transparent hover:border-blue-600 pb-0.5 transition-all w-max">
+          View Credential
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+        </a>
+      </div>
 
-        <!-- C++ -->
-        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition">
-          <div>
-            <h4 class="font-semibold text-lg text-gray-900">Mastering C++ Language - Programming For Beginners</h4>
-            <p class="mt-3 text-sm text-gray-700 leading-relaxed">Comprehensive training covering C++ syntax, pointers, memory management, and standard template library (STL). Developed a strong foundation for systems programming and competitive coding.</p>
+      <!-- C++ -->
+      <div class="bg-white border border-gray-200 p-8 w-full relative group hover:border-gray-300 hover:-translate-y-2 hover:shadow-xl hover:border-gray-300 transition-all duration-300">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">CT/02</span>
+          <div class="flex h-1 w-12">
+            <div class="h-full w-1/2 bg-blue-400"></div>
+            <div class="h-full w-1/2 bg-pink-300"></div>
           </div>
-          <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-359e64dc-0976-4408-af9d-5bfb2101b3c0.pdf" target="_blank" class="mt-4 inline-flex items-center gap-1 text-blue-600 font-medium text-sm hover:underline">
-            View Credential
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-          </a>
         </div>
+        <h4 class="text-3xl font-serif mb-4 text-gray-900 group-hover:text-blue-700 transition-colors">Mastering C++ Language - Programming For Beginners</h4>
+        <p class="text-gray-700 text-base leading-relaxed mb-6">Comprehensive training covering C++ syntax, pointers, memory management, and standard template library (STL). Developed a strong foundation for systems programming and competitive coding.</p>
+        <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-359e64dc-0976-4408-af9d-5bfb2101b3c0.pdf" target="_blank" class="inline-flex items-center gap-1 text-gray-900 font-medium text-sm hover:text-blue-600 border-b border-transparent hover:border-blue-600 pb-0.5 transition-all w-max">
+          View Credential
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+        </a>
+      </div>
 
-        <!-- Algorithms -->
-        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition">
-          <div>
-            <h4 class="font-semibold text-lg text-gray-900">Crash Course on Algorithms</h4>
-            <p class="mt-3 text-sm text-gray-700 leading-relaxed">Deep dive into essential algorithms including sorting, searching, graph traversal, and dynamic programming. Improved analytical skills to optimize code performance and solve complex algorithmic challenges.</p>
+      <!-- Algorithms -->
+      <div class="bg-white border border-gray-200 p-8 w-full relative group hover:border-gray-300 hover:-translate-y-2 hover:shadow-xl hover:border-gray-300 transition-all duration-300">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">CT/03</span>
+          <div class="flex h-1 w-12">
+            <div class="h-full w-1/2 bg-green-400"></div>
+            <div class="h-full w-1/2 bg-yellow-300"></div>
           </div>
-          <a href="https://www.linkedin.com/in/moballig/details/certifications/" target="_blank" class="mt-4 inline-flex items-center gap-1 text-blue-600 font-medium text-sm hover:underline">
-            View Credential
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-          </a>
         </div>
+        <h4 class="text-3xl font-serif mb-4 text-gray-900 group-hover:text-blue-700 transition-colors">Crash Course on Algorithms</h4>
+        <p class="text-gray-700 text-base leading-relaxed mb-6">Deep dive into essential algorithms including sorting, searching, graph traversal, and dynamic programming. Improved analytical skills to optimize code performance and solve complex algorithmic challenges.</p>
+        <a href="https://www.linkedin.com/in/moballig/details/certifications/" target="_blank" class="inline-flex items-center gap-1 text-gray-900 font-medium text-sm hover:text-blue-600 border-b border-transparent hover:border-blue-600 pb-0.5 transition-all w-max">
+          View Credential
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+        </a>
+      </div>
 
-        <!-- Java -->
-        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition">
-          <div>
-            <h4 class="font-semibold text-lg text-gray-900">OOPs in Java Programming</h4>
-            <p class="mt-3 text-sm text-gray-700 leading-relaxed">Explored core OOP principles such as inheritance, polymorphism, encapsulation, and abstraction. Gained hands-on experience in building modular, reusable, and scalable Java applications.</p>
+      <!-- Java -->
+      <div class="bg-white border border-gray-200 p-8 w-full relative group hover:border-gray-300 hover:-translate-y-2 hover:shadow-xl hover:border-gray-300 transition-all duration-300">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">CT/04</span>
+          <div class="flex h-1 w-12">
+            <div class="h-full w-1/2 bg-red-400"></div>
+            <div class="h-full w-1/2 bg-orange-300"></div>
           </div>
-          <a href="https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiI0Mjc2IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvMTAwNDU3NzVfMTAzMzkwNzRfMTc3NTE0OTExOTc0NS5wbmciLCJ1c2VybmFtZSI6IlNoYWlraCBNb2hhbW1hZCBNb2JhbGxpZyJ9&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F7217%2FOOPs%2520in%2520Java%2Fcertificate%2Fdownload-skillup&%24web_only=true" target="_blank" class="mt-4 inline-flex items-center gap-1 text-blue-600 font-medium text-sm hover:underline">
-            View Credential
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-          </a>
         </div>
+        <h4 class="text-3xl font-serif mb-4 text-gray-900 group-hover:text-blue-700 transition-colors">OOPs in Java Programming</h4>
+        <p class="text-gray-700 text-base leading-relaxed mb-6">Explored core OOP principles such as inheritance, polymorphism, encapsulation, and abstraction. Gained hands-on experience in building modular, reusable, and scalable Java applications.</p>
+        <a href="https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiI0Mjc2IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvMTAwNDU3NzVfMTAzMzkwNzRfMTc3NTE0OTExOTc0NS5wbmciLCJ1c2VybmFtZSI6IlNoYWlraCBNb2hhbW1hZCBNb2JhbGxpZyJ9&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F7217%2FOOPs%2520in%2520Java%2Fcertificate%2Fdownload-skillup&%24web_only=true" target="_blank" class="inline-flex items-center gap-1 text-gray-900 font-medium text-sm hover:text-blue-600 border-b border-transparent hover:border-blue-600 pb-0.5 transition-all w-max">
+          View Credential
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+        </a>
       </div>
     </div>
   </section>
+  <div class="max-w-5xl mx-auto border-t border-gray-200/80 my-8"></div>
 
   <!-- ===== Projects Section ===== -->
   <section id="projects" class="py-16 bg-transparent text-center">
-    <h3 class="text-3xl font-bold mb-10 text-gray-800">Projects</h3>
+    <div class="max-w-5xl mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end gap-6 md:gap-12 text-left">
+      <div class="md:w-1/3">
+        <span class="text-xs font-semibold text-gray-400 tracking-widest uppercase block mb-3">06 — PORTFOLIO</span>
+        <h3 class="text-5xl font-serif text-gray-900 leading-none tracking-tight">Things I've <br/><span class="italic text-gray-600">built.</span></h3>
+      </div>
+      <div class="md:w-2/3">
+        <p class="text-gray-500 text-base leading-relaxed">Selected open-source projects across Android apps, hardware programming, and tooling.</p>
+      </div>
+    </div>
     <div class="flex flex-col items-center gap-8 px-6 max-w-4xl mx-auto text-left">
       <!-- JuiceLab -->
-      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-full hover:-translate-y-1 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2">JuiceLab</h4>
+      <div class="bg-white border border-gray-200 p-8 w-full relative group hover:border-gray-300 hover:-translate-y-2 hover:shadow-xl hover:border-gray-300 transition-all duration-300">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">PJ/01</span>
+          <div class="flex h-1 w-12">
+            <div class="h-full w-1/2 bg-cyan-400"></div>
+            <div class="h-full w-1/2 bg-purple-300"></div>
+          </div>
+        </div>
+        <h4 class="text-3xl font-serif mb-4 text-gray-900 group-hover:text-blue-700 transition-colors">JuiceLab</h4>
         <p class="text-gray-700 text-sm mb-4">A specialized POS and management application designed for modern juice bars. It streamlines the entire process from customer intake to kitchen fulfillment and sales reporting, all wrapped in a beautiful, intuitive "Bento-style" interface.</p>
         <ul class="text-gray-600 text-sm list-disc pl-5 mb-4 space-y-1">
           <li><strong>Kitchen Operations:</strong> Live Queue, Dynamic Workflow, FIFO Sorting, and Rush Level Indicators.</li>
@@ -539,8 +568,15 @@ My work includes developing web applications, REST APIs, and AI-powered solution
         <p class="text-gray-500 text-xs"><strong>Tech Stack:</strong> Kotlin, Jetpack Compose, Room SQLite + Supabase, MVVM, Coroutines & Flow</p>
       </div>
       <!-- DeskBuddy -->
-      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-full hover:-translate-y-1 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2">DeskBuddy</h4>
+      <div class="bg-white border border-gray-200 p-8 w-full relative group hover:border-gray-300 hover:-translate-y-2 hover:shadow-xl hover:border-gray-300 transition-all duration-300">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">PJ/02</span>
+          <div class="flex h-1 w-12">
+            <div class="h-full w-1/2 bg-blue-400"></div>
+            <div class="h-full w-1/2 bg-pink-300"></div>
+          </div>
+        </div>
+        <h4 class="text-3xl font-serif mb-4 text-gray-900 group-hover:text-blue-700 transition-colors">DeskBuddy</h4>
         <p class="text-gray-700 text-sm mb-4">A Qt6 desktop application for interacting with and managing an ESP32 device over local networks and Bluetooth.</p>
         <ul class="text-gray-600 text-sm list-disc pl-5 space-y-1">
           <li>Scans for nearby Bluetooth devices and connects to ESP32 over RFCOMM.</li>
@@ -550,8 +586,15 @@ My work includes developing web applications, REST APIs, and AI-powered solution
         </ul>
       </div>
       <!-- Employee Management System -->
-      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-full hover:-translate-y-1 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2">Employee Management System</h4>
+      <div class="bg-white border border-gray-200 p-8 w-full relative group hover:border-gray-300 hover:-translate-y-2 hover:shadow-xl hover:border-gray-300 transition-all duration-300">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">PJ/03</span>
+          <div class="flex h-1 w-12">
+            <div class="h-full w-1/2 bg-green-400"></div>
+            <div class="h-full w-1/2 bg-yellow-300"></div>
+          </div>
+        </div>
+        <h4 class="text-3xl font-serif mb-4 text-gray-900 group-hover:text-blue-700 transition-colors">Employee Management System</h4>
         <p class="text-gray-700 text-sm mb-4">A simple, file-based Employee Management System built using the C programming language with a command-line interface.</p>
         <ul class="text-gray-600 text-sm list-disc pl-5 space-y-1">
           <li><strong>Roles & Access Control:</strong> HR (Full access) and Admin (View access + limited updates).</li>
@@ -561,8 +604,15 @@ My work includes developing web applications, REST APIs, and AI-powered solution
         </ul>
       </div>
       <!-- Blog Backend -->
-      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-full hover:-translate-y-1 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2">Blog Backend API</h4>
+      <div class="bg-white border border-gray-200 p-8 w-full relative group hover:border-gray-300 hover:-translate-y-2 hover:shadow-xl hover:border-gray-300 transition-all duration-300">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">PJ/04</span>
+          <div class="flex h-1 w-12">
+            <div class="h-full w-1/2 bg-red-400"></div>
+            <div class="h-full w-1/2 bg-orange-300"></div>
+          </div>
+        </div>
+        <h4 class="text-3xl font-serif mb-4 text-gray-900 group-hover:text-blue-700 transition-colors">Blog Backend API</h4>
         <p class="text-gray-700 text-sm mb-4">A robust Django REST Framework backend designed to manage and serve blog content. It powers a dynamic portfolio blog section and a React-based Admin Editor.</p>
         <ul class="text-gray-600 text-sm list-disc pl-5 space-y-1">
           <li><strong>Public API endpoints:</strong> Exposes lightweight endpoints for listing blog posts (with summaries) and fetching full details by slug for fast loading.</li>
@@ -572,10 +622,19 @@ My work includes developing web applications, REST APIs, and AI-powered solution
       </div>
     </div>
   </section>
+  <div class="max-w-5xl mx-auto border-t border-gray-200/80 my-8"></div>
 
   <!-- ===== Blog Section ===== -->
-  <section id="blog" class="py-16 bg-amber-50/50 text-center">
-    <h3 class="text-3xl font-bold mb-10 text-gray-800">Latest Writings</h3>
+  <section id="blog" class="py-16 bg-transparent text-center">
+    <div class="max-w-5xl mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end gap-6 md:gap-12 text-left">
+      <div class="md:w-1/3">
+        <span class="text-xs font-semibold text-gray-400 tracking-widest uppercase block mb-3">07 — PUBLICATIONS</span>
+        <h3 class="text-5xl font-serif text-gray-900 leading-none tracking-tight">Papers & <br/><span class="italic text-gray-600">preprints.</span></h3>
+      </div>
+      <div class="md:w-2/3">
+        <p class="text-gray-500 text-base leading-relaxed">Blog posts, articles, and insights on software engineering.</p>
+      </div>
+    </div>
     <div id="blog-grid" class="flex flex-wrap justify-center gap-8 px-6 max-w-6xl mx-auto mb-10">
       <div class="text-gray-500 animate-pulse">Loading posts...</div>
     </div>
@@ -588,14 +647,27 @@ My work includes developing web applications, REST APIs, and AI-powered solution
       </a>
     </div>
   </section>
+  <div class="max-w-5xl mx-auto border-t border-gray-200/80 my-8"></div>
 
   <!-- ===== Awards & Achievements Section ===== -->
   <section id="awards" class="py-16 bg-transparent text-center">
-    <h3 class="text-3xl font-bold mb-10 text-gray-800">Awards &amp; Achievements</h3>
+    <div class="max-w-5xl mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end gap-6 md:gap-12 text-left">
+      <div class="md:w-1/3">
+        <span class="text-xs font-semibold text-gray-400 tracking-widest uppercase block mb-3">08 — AWARDS</span>
+        <h3 class="text-5xl font-serif text-gray-900 leading-none tracking-tight">Contests & <br/><span class="italic text-gray-600">achievements.</span></h3>
+      </div>
+      <div class="md:w-2/3">
+        <p class="text-gray-500 text-base leading-relaxed">Performance in competitive programming and algorithm contests.</p>
+      </div>
+    </div>
     <div class="flex flex-col items-center gap-8 px-6 max-w-4xl mx-auto text-left">
       
-      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-full hover:-translate-y-1 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2 text-gray-900">Champion — CodeTrap Programming Contest (Summer 2025)</h4>
+      <div class="bg-white border border-gray-200 p-6 w-full relative group hover:border-gray-300 pl-8 hover:-translate-y-2 hover:shadow-xl hover:border-gray-300 transition-all duration-300">
+        <div class="absolute left-0 top-6 bottom-6 w-1 bg-blue-400"></div>
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">AW/01</span>
+        </div>
+        <h4 class="text-2xl font-serif mb-3 text-gray-900">Champion — CodeTrap Programming Contest (Summer 2025)</h4>
         <p class="text-gray-700 text-sm leading-relaxed mb-3">Secured the 1st place in the highly competitive summer edition of the CodeTrap Programming Contest.</p>
         <ul class="text-gray-600 text-sm list-disc pl-5 space-y-1">
           <li>Demonstrated strong proficiency in algorithms and data structures under time pressure.</li>
@@ -604,8 +676,12 @@ My work includes developing web applications, REST APIs, and AI-powered solution
         </ul>
       </div>
 
-      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-full hover:-translate-y-1 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2 text-gray-900">Top 5 — Intra University Algorithm Contest</h4>
+      <div class="bg-white border border-gray-200 p-6 w-full relative group hover:border-gray-300 pl-8 hover:-translate-y-2 hover:shadow-xl hover:border-gray-300 transition-all duration-300">
+        <div class="absolute left-0 top-6 bottom-6 w-1 bg-blue-400"></div>
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">AW/02</span>
+        </div>
+        <h4 class="text-2xl font-serif mb-3 text-gray-900">Top 5 — Intra University Algorithm Contest</h4>
         <p class="text-gray-700 text-sm leading-relaxed mb-3">Placed among the top 5 performers in the flagship Intra University Algorithm Contest.</p>
         <ul class="text-gray-600 text-sm list-disc pl-5 space-y-1">
           <li>Competed against a large pool of talented students, showcasing advanced problem-solving skills.</li>
@@ -613,8 +689,12 @@ My work includes developing web applications, REST APIs, and AI-powered solution
         </ul>
       </div>
 
-      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-full hover:-translate-y-1 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2 text-gray-900">Top 10 — CodeTrap Programming Contest (Spring 2025)</h4>
+      <div class="bg-white border border-gray-200 p-6 w-full relative group hover:border-gray-300 pl-8 hover:-translate-y-2 hover:shadow-xl hover:border-gray-300 transition-all duration-300">
+        <div class="absolute left-0 top-6 bottom-6 w-1 bg-blue-400"></div>
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">AW/03</span>
+        </div>
+        <h4 class="text-2xl font-serif mb-3 text-gray-900">Top 10 — CodeTrap Programming Contest (Spring 2025)</h4>
         <p class="text-gray-700 text-sm leading-relaxed mb-3">Earned a top-10 placement in the spring edition of the CodeTrap contest.</p>
         <ul class="text-gray-600 text-sm list-disc pl-5 space-y-1">
           <li>Proved consistency in competitive programming by securing a top spot in consecutive contest editions.</li>
@@ -624,30 +704,208 @@ My work includes developing web applications, REST APIs, and AI-powered solution
 
     </div>
   </section>
+  <div class="max-w-5xl mx-auto border-t border-gray-200/80 my-8"></div>
 
   <!-- ===== Extracurricular Section ===== -->
-  <section id="extracurricular" class="py-16 bg-amber-50/50 text-center">
-    <h3 class="text-3xl font-bold mb-6 text-gray-800">Volunteering &amp; Leadership</h3>
-    <div class="max-w-3xl mx-auto px-4 text-left">
-      <div class="space-y-4">
-        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-4 shadow-sm">
-          <h4 class="font-semibold">ACM Executive — Software Engineering Club (SEC)</h4>
-          <p class="text-sm text-gray-600">2025 &ndash; Present</p>
-          <p class="mt-2 text-gray-700">Volunteered at the DIU BreakOut Algorithm and CodeTrap Programming Contests, assisting with registration, seat allocation, computer setup, technical support, and promotional coordination.</p>
-        </div>
+  <section id="extracurricular" class="py-16 bg-transparent text-center">
+    <div class="max-w-5xl mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end gap-6 md:gap-12 text-left">
+      <div class="md:w-1/3">
+        <span class="text-xs font-semibold text-gray-400 tracking-widest uppercase block mb-3">07 — EXTRACURRICULAR</span>
+        <h3 class="text-5xl font-serif text-gray-900 leading-none tracking-tight">Community &amp; <br/><span class="italic text-gray-600">volunteering.</span></h3>
+      </div>
+      <div class="md:w-2/3">
+        <p class="text-gray-500 text-base leading-relaxed">Leadership roles, mentoring students, and organizing technical events.</p>
+      </div>
+    </div>
+    <div class="flex flex-col items-center gap-6 px-6 max-w-4xl mx-auto text-left">
 
-        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-4 shadow-sm">
-          <h4 class="font-semibold">Executive Member — Notre Dame Information Technology Club</h4>
-          <p class="text-sm text-gray-600">2022 &ndash; 2023</p>
-          <p class="mt-2 text-gray-700">Successfully organized INIT 3.0 &amp; 4.0, FTMPC, and Pixelcon while collaborating closely with team members to ensure smooth event execution.</p>
+      <div class="bg-white border border-gray-200 p-8 w-full relative group hover:border-gray-300 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+        <div class="flex justify-between items-start mb-4">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">EX/01</span>
+          <span class="text-xs text-gray-400">2025 &ndash; Present</span>
+        </div>
+        <h4 class="text-2xl font-serif text-gray-900 mb-3">Instructor &amp; Mentor — DIU Software Engineering Club</h4>
+        <p class="text-gray-700 text-base leading-relaxed mb-4">Conducted introductory programming logic and problem-solving sessions for junior students. Actively mentored peers in competitive programming and structured problem-solving approaches, helping build a stronger learning culture through hands-on guidance.</p>
+        <ul class="text-gray-600 text-sm list-disc pl-5 space-y-1">
+          <li>Led beginner workshops on algorithms and logic building.</li>
+          <li>Provided one-on-one guidance for Codeforces and competitive practice.</li>
+          <li>Fostered a collaborative environment within the club community.</li>
+        </ul>
+      </div>
+
+      <div class="bg-white border border-gray-200 p-8 w-full relative group hover:border-gray-300 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+        <div class="flex justify-between items-start mb-4">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">EX/02</span>
+          <span class="text-xs text-gray-400">2025 &ndash; Present</span>
+        </div>
+        <h4 class="text-2xl font-serif text-gray-900 mb-3">ACM Executive — Software Engineering Club (SEC)</h4>
+        <p class="text-gray-700 text-base leading-relaxed mb-4">Volunteered at the DIU BreakOut Algorithm and CodeTrap Programming Contests, assisting with registration, seat allocation, computer setup, technical support, and promotional coordination.</p>
+        <ul class="text-gray-600 text-sm list-disc pl-5 space-y-1">
+          <li>Managed participant registration and on-site logistics for 200+ attendees.</li>
+          <li>Coordinated computer and judging system setup for programming contests.</li>
+          <li>Led promotional outreach and social media coordination for club events.</li>
+        </ul>
+      </div>
+
+      <div class="bg-white border border-gray-200 p-8 w-full relative group hover:border-gray-300 hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+        <div class="flex justify-between items-start mb-4">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">EX/03</span>
+          <span class="text-xs text-gray-400">2022 &ndash; 2023</span>
+        </div>
+        <h4 class="text-2xl font-serif text-gray-900 mb-3">Executive Member — Notre Dame Information Technology Club</h4>
+        <p class="text-gray-700 text-base leading-relaxed mb-4">Successfully organized INIT 3.0 &amp; 4.0, FTMPC, and Pixelcon while collaborating closely with team members to ensure smooth event execution and maximum participation from across the college.</p>
+        <ul class="text-gray-600 text-sm list-disc pl-5 space-y-1">
+          <li>Planned and executed 4 major inter-college technology events.</li>
+          <li>Coordinated venue setup, scheduling, and participant management.</li>
+          <li>Worked cross-functionally with design, technical, and logistics teams.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+  <div class="max-w-5xl mx-auto border-t border-gray-200/80 my-8"></div>
+
+  <!-- ===== Education Section ===== -->
+  <section id="education" class="py-16 bg-transparent text-center">
+    <div class="max-w-5xl mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end gap-6 md:gap-12 text-left">
+      <div class="md:w-1/3">
+        <span class="text-xs font-semibold text-gray-400 tracking-widest uppercase block mb-3">08 — ACADEMICS</span>
+        <h3 class="text-5xl font-serif text-gray-900 leading-none tracking-tight">Education &amp; <br/><span class="italic text-gray-600">results.</span></h3>
+      </div>
+      <div class="md:w-2/3">
+        <p class="text-gray-500 text-base leading-relaxed">A full record of my academic journey. Detailed semester results are tucked behind expandable panels to keep this page calm.</p>
+      </div>
+    </div>
+
+    <!-- Degree Cards Row -->
+    <div class="max-w-5xl mx-auto px-6 mb-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 border border-gray-200 bg-white">
+        <!-- Undergraduate -->
+        <div class="p-8 border-b md:border-b-0 md:border-r border-gray-200 flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+          <div>
+            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-4">UNDERGRADUATE</span>
+            <h4 class="font-serif text-xl text-gray-900 mb-1">B.Sc. in Software Engineering</h4>
+            <p class="text-sm text-gray-500">Daffodil International University</p>
+          </div>
+          <div class="mt-6">
+            <span class="text-4xl font-serif font-bold text-gray-900">3.77</span>
+            <span class="text-sm text-gray-500 ml-1">/ 4.00 &middot; CGPA (In Progress)</span>
+          </div>
+        </div>
+        <!-- Higher Secondary -->
+        <div class="p-8 border-b md:border-b-0 md:border-r border-gray-200 flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+          <div>
+            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-4">HIGHER SECONDARY</span>
+            <h4 class="font-serif text-xl text-gray-900 mb-1">HSC, Science</h4>
+            <p class="text-sm text-gray-500">Notre Dame College, Dhaka</p>
+          </div>
+          <div class="mt-6">
+            <span class="text-4xl font-serif font-bold text-gray-900">5.00</span>
+            <span class="text-sm text-gray-500 ml-1">GPA &middot; A+ in all subjects</span>
+          </div>
+        </div>
+        <!-- Secondary -->
+        <div class="p-8 flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+          <div>
+            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-4">SECONDARY</span>
+            <h4 class="font-serif text-xl text-gray-900 mb-1">SSC, Science</h4>
+            <p class="text-sm text-gray-500">Manikganj Government High School</p>
+          </div>
+          <div class="mt-6">
+            <span class="text-4xl font-serif font-bold text-gray-900">5.00</span>
+            <span class="text-sm text-gray-500 ml-1">GPA &middot; A+ in all subjects</span>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Course Details Accordion -->
+    <div class="max-w-5xl mx-auto px-6 text-left">
+      <div class="border border-gray-200 bg-white">
+
+        <details class="group">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none hover:bg-gray-50 transition-colors select-none">
+            <div class="flex items-center gap-4">
+              <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+              <div>
+                <h5 class="font-serif text-lg text-gray-900">Core Courses I Have Completed</h5>
+                <p class="text-xs text-gray-400 mt-0.5">Subjects where I demonstrated strong performance</p>
+              </div>
+            </div>
+            <svg class="w-5 h-5 text-gray-400 transition-transform duration-300 group-open:rotate-180 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+
+          <div class="border-t border-gray-200">
+            <!-- Table Header -->
+            <div class="grid grid-cols-12 px-6 py-3 bg-gray-50 border-b border-gray-200">
+              <span class="col-span-8 text-xs font-bold text-gray-400 uppercase tracking-widest">Course</span>
+              <span class="col-span-2 text-xs font-bold text-gray-400 uppercase tracking-widest text-right">Credit</span>
+              <span class="col-span-2 text-xs font-bold text-gray-400 uppercase tracking-widest text-right">Grade</span>
+            </div>
+
+            <!-- Course Rows — add your courses below -->
+            <div class="divide-y divide-gray-100">
+
+              <div class="grid grid-cols-12 px-6 py-4 hover:bg-gray-50/60 transition-colors">
+                <span class="col-span-8 text-sm text-gray-800">CSE — Structured Programming</span>
+                <span class="col-span-2 text-sm text-gray-500 text-right">3</span>
+                <span class="col-span-2 text-sm font-medium text-gray-900 text-right">A+</span>
+              </div>
+
+              <div class="grid grid-cols-12 px-6 py-4 hover:bg-gray-50/60 transition-colors">
+                <span class="col-span-8 text-sm text-gray-800">CSE — Object Oriented Programming</span>
+                <span class="col-span-2 text-sm text-gray-500 text-right">3</span>
+                <span class="col-span-2 text-sm font-medium text-gray-900 text-right">A+</span>
+              </div>
+
+              <div class="grid grid-cols-12 px-6 py-4 hover:bg-gray-50/60 transition-colors">
+                <span class="col-span-8 text-sm text-gray-800">CSE — Data Structures &amp; Algorithms</span>
+                <span class="col-span-2 text-sm text-gray-500 text-right">3</span>
+                <span class="col-span-2 text-sm font-medium text-gray-900 text-right">A</span>
+              </div>
+
+              <div class="grid grid-cols-12 px-6 py-4 hover:bg-gray-50/60 transition-colors">
+                <span class="col-span-8 text-sm text-gray-800">Math — Geometry and Differential Calculus</span>
+                <span class="col-span-2 text-sm text-gray-500 text-right">4</span>
+                <span class="col-span-2 text-sm font-medium text-gray-900 text-right">A+</span>
+              </div>
+
+              <div class="grid grid-cols-12 px-6 py-4 hover:bg-gray-50/60 transition-colors">
+                <span class="col-span-8 text-sm text-gray-800">SWE — Introduction to Software Engineering</span>
+                <span class="col-span-2 text-sm text-gray-500 text-right">3</span>
+                <span class="col-span-2 text-sm font-medium text-gray-900 text-right">A+</span>
+              </div>
+
+              <div class="grid grid-cols-12 px-6 py-4 hover:bg-gray-50/60 transition-colors">
+                <span class="col-span-8 text-sm text-gray-800">CSE — Database Management Systems</span>
+                <span class="col-span-2 text-sm text-gray-500 text-right">3</span>
+                <span class="col-span-2 text-sm font-medium text-gray-900 text-right">A</span>
+              </div>
+
+            </div>
+
+            <div class="px-6 py-4 border-t border-gray-200 bg-gray-50/40">
+              <p class="text-xs text-gray-400 italic">* Placeholder courses shown. Real course data will be added shortly.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
   </section>
+  <div class="max-w-5xl mx-auto border-t border-gray-200/80 my-8"></div>
 
   <!-- ===== Timeline Section ===== -->
   <section id="timeline" class="py-16 bg-transparent text-center">
-    <h3 class="text-3xl font-bold mb-10 text-gray-800">Timeline</h3>
+    <div class="max-w-5xl mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end gap-6 md:gap-12 text-left">
+      <div class="md:w-1/3">
+        <span class="text-xs font-semibold text-gray-400 tracking-widest uppercase block mb-3">10 — JOURNEY</span>
+        <h3 class="text-5xl font-serif text-gray-900 leading-none tracking-tight">My <span class="italic text-gray-600">timeline.</span></h3>
+      </div>
+      <div class="md:w-2/3">
+        <p class="text-gray-500 text-base leading-relaxed">Key milestones over the years.</p>
+      </div>
+    </div>
     <div class="max-w-2xl mx-auto border-l-4 border-blue-600">
       <div class="mb-8 pl-6 relative">
         <span class="absolute -left-3 top-0 w-5 h-5 bg-blue-600 rounded-full"></span>
@@ -666,7 +924,6 @@ My work includes developing web applications, REST APIs, and AI-powered solution
       </div>
     </div>
   </section>
-
   <!-- ===== Footer ===== -->
   <footer class="text-center py-8 bg-gray-900 text-gray-400 text-sm">
     <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-3">
