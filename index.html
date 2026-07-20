@@ -4,10 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MOBALLIG | Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Poppins', sans-serif; background: #fafafa; }
+    body { font-family: 'Poppins', sans-serif; background: #ffffff; position: relative; }
+    
+    /* Graph paper background */
+    .graph-background {
+      position: fixed;
+      inset: 0;
+      z-index: -5;
+      pointer-events: none;
+      background-image: 
+        linear-gradient(to right, rgba(99, 102, 241, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(99, 102, 241, 0.035) 1px, transparent 1px);
+      background-size: 28px 28px, 28px 28px;
+    }
+
+    /* Glow blobs */
+    .glow-blob {
+      position: fixed;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.055) 0%, transparent 70%);
+      z-index: -6;
+      pointer-events: none;
+      filter: blur(50px);
+    }
+
     .glass {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(12px);
@@ -246,8 +271,8 @@
       }
     }
     /* About section: split 50/50 on desktop, stacked on mobile; no visual effects */
-    .about-section { padding: 3.5rem 0; background: linear-gradient(180deg,#ffffff,#fbfbfd); }
-    .about-card { max-width: 1100px; margin: 0 auto; padding: 1.25rem; border-radius: 1rem; background: #ffffff; box-shadow: none; transition: none; }
+    .about-section { padding: 3.5rem 0; background: transparent; }
+    .about-card { max-width: 1100px; margin: 0 auto; padding: 1.25rem; border-radius: 1rem; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.01); }
     .about-label { font-weight: 800; color: #0f172a; letter-spacing: 0.18em; }
     .about-content { color: #334155; line-height: 1.6; }
 
@@ -268,6 +293,11 @@
   </style>
 </head>
   <body class="text-gray-800">
+    <!-- Graph Background Layout -->
+    <div class="graph-background"></div>
+    <div class="glow-blob top-[-300px] right-[-300px]"></div>
+    <div class="glow-blob bottom-[-300px] left-[-300px]"></div>
+
     <!-- Sticky Social Links (desktop only) -->
   <div class="hidden md:flex flex-col gap-2 fixed left-4 top-1/2 -translate-y-1/2 z-50">
       <a href="https://www.linkedin.com/in/moballig/" target="_blank" aria-label="LinkedIn" class="group bg-white rounded-full shadow p-2 hover:bg-blue-100 transition relative">
@@ -309,6 +339,7 @@
       <li><a href="#education" class="nav-link">Education</a></li>
       <li><a href="#experience" class="nav-link">Experience</a></li>
       <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="blog.html" class="nav-link">Blog</a></li>
     </ul>
   </nav>
 
@@ -326,7 +357,7 @@
   <div class="hero-content relative w-[90%] md:w-1/2 md:max-w-[50vw] mx-auto md:mx-0 flex flex-col items-center md:items-start text-center md:text-left md:mt-52">
   <img src="profile.jpg" alt="Oil Paint Style" class="w-48 h-48 md:hidden rounded-full shadow-lg mb-6 object-cover flex-shrink-0" style="filter: contrast(110%) saturate(120%) brightness(95%); border: 3px solid #222;">
       <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-3">Hi, I'm <span class="text-blue-600">MOBALLIG</span></h2>
-      <p class="text-lg text-gray-600 max-w-[500px] mb-5">A passionate developer crafting clean, minimal, and impactful digital experiences.</p>
+      <p class="text-lg text-gray-600 max-w-[500px] mb-5">Software Engineering student, competitive programmer, and builder of practical web and mobile experiences.</p>
 
       <a href="https://www.linkedin.com/in/moballig/" target="_blank"
         class="group inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 shadow-md hover:shadow-xl transition-all duration-300">
@@ -349,177 +380,220 @@
       <div class="about-label md:w-1/4 text-3xl md:text-5xl text-blue-600 tracking-more mb-4 md:mb-0">ABOUT</div>
       <div class="about-content md:flex-1 text-gray-700 text-base md:text-lg">
         <p>
-          I'm Shaikh Mohammad Moballig — a developer who builds minimal, accessible, and
-          high-performance web experiences. I focus on semantic markup, clean UI, and
-          maintainable front-end architecture. I enjoy turning concepts into polished,
-          user-friendly products using modern tools and thoughtful design.
+          I’m Shaikh Mohammad Moballig — a Software Engineering student, competitive programmer, and aspiring developer focused on building practical, user-friendly digital products. I enjoy solving algorithmic problems, mentoring junior students, and turning ideas into polished web and mobile experiences. My work blends clean code, thoughtful design, and real-world problem solving.
         </p>
         </div>
       </section>
 
   <!-- ===== Skills Section ===== -->
-  <section id="skills" class="py-16 bg-white text-center">
+  <section id="skills" class="py-16 bg-transparent text-center">
     <h3 class="text-3xl font-bold mb-10 text-gray-800">Skills</h3>
-    <div class="max-w-4xl mx-auto px-4">
-      <!-- Programming Languages (badge style like Soft Skills) -->
-      <h4 class="text-2xl font-semibold mb-4 text-gray-800 text-left">Programming Languages</h4>
-      <div class="flex flex-wrap gap-3 items-center mb-12">
-        <span class="skill-badge bg-indigo-50 text-indigo-700">HTML5</span>
-        <span class="skill-badge bg-sky-50 text-sky-700">CSS3</span>
-        <span class="skill-badge bg-yellow-50 text-yellow-700">JavaScript</span>
-        <span class="skill-badge bg-emerald-50 text-emerald-700">Python</span>
-        <span class="skill-badge bg-violet-50 text-violet-700">Tailwind CSS</span>
+    <div class="max-w-4xl mx-auto px-4 text-left">
+      <h4 class="text-2xl font-semibold mb-4 text-gray-800">Technical Skills</h4>
+      <div class="flex flex-wrap gap-3 items-center mb-10">
+        <span class="skill-badge bg-indigo-50 text-indigo-700">Algorithms &amp; Data Structures</span>
+        <span class="skill-badge bg-sky-50 text-sky-700">Testing &amp; Debugging</span>
+        <span class="skill-badge bg-yellow-50 text-yellow-700">API Integration</span>
+        <span class="skill-badge bg-emerald-50 text-emerald-700">WordPress</span>
+        <span class="skill-badge bg-violet-50 text-violet-700">Database Design</span>
       </div>
 
-      <!-- Soft Skills Category -->
-      <h4 class="text-2xl font-semibold mt-12 mb-4 text-gray-800 text-left">Soft Skills</h4>
-      <div class="flex flex-wrap gap-2 mb-12">
-        <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">Communication</span>
-        <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">Teamwork</span>
-        <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">Problem Solving</span>
-        <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">Time Management</span>
-        <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">Adaptability</span>
+      <h4 class="text-2xl font-semibold mb-4 text-gray-800">Programming Languages</h4>
+      <div class="flex flex-wrap gap-3 items-center mb-10">
+        <span class="skill-badge bg-blue-50 text-blue-700">C/C++</span>
+        <span class="skill-badge bg-slate-50 text-slate-700">Python</span>
+        <span class="skill-badge bg-amber-50 text-amber-700">Java</span>
+        <span class="skill-badge bg-teal-50 text-teal-700">SQL</span>
       </div>
 
-      <!-- Technologies & Frameworks Category -->
-      <h4 class="text-2xl font-semibold mb-4 text-gray-800 text-left">Technologies &amp; Frameworks</h4>
-      <div class="flex flex-wrap gap-2 mb-12">
-        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">HTML5</span>
-        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">CSS3</span>
-        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">JavaScript</span>
-        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">Tailwind CSS</span>
-        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">React</span>
-        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">Node.js</span>
-        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">Django</span>
+      <h4 class="text-2xl font-semibold mb-4 text-gray-800">Tools</h4>
+      <div class="flex flex-wrap gap-3 items-center mb-10">
+        <span class="skill-badge bg-gray-100 text-gray-700">Photoshop</span>
+        <span class="skill-badge bg-gray-100 text-gray-700">Canva</span>
+        <span class="skill-badge bg-gray-100 text-gray-700">CapCut</span>
+        <span class="skill-badge bg-gray-100 text-gray-700">VS Code</span>
+        <span class="skill-badge bg-gray-100 text-gray-700">Git</span>
+        <span class="skill-badge bg-gray-100 text-gray-700">GitHub</span>
       </div>
 
-      <!-- Tools Category -->
-      <h4 class="text-2xl font-semibold mb-4 text-gray-800 text-left">Tools</h4>
-      <div class="flex flex-wrap gap-2">
-        <span class="px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">Git</span>
-        <span class="px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">GitHub</span>
-        <span class="px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">VS Code</span>
-        <span class="px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">Docker</span>
-        <span class="px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">Figma</span>
-        <span class="px-3 py-1 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">Postman</span>
+      <h4 class="text-2xl font-semibold mb-4 text-gray-800">Soft Skills</h4>
+      <div class="flex flex-wrap gap-3 items-center mb-10">
+        <span class="skill-badge bg-blue-100 text-blue-700">Teamwork</span>
+        <span class="skill-badge bg-blue-100 text-blue-700">Problem-Solving</span>
+        <span class="skill-badge bg-blue-100 text-blue-700">Attention to Detail</span>
+        <span class="skill-badge bg-blue-100 text-blue-700">Collaboration</span>
+        <span class="skill-badge bg-blue-100 text-blue-700">Adaptability</span>
+        <span class="skill-badge bg-blue-100 text-blue-700">Time Management</span>
+        <span class="skill-badge bg-blue-100 text-blue-700">Technical Support</span>
+        <span class="skill-badge bg-blue-100 text-blue-700">Event Coordination</span>
+      </div>
+
+      <h4 class="text-2xl font-semibold mb-4 text-gray-800">Problem Solving Activities</h4>
+      <div class="flex flex-wrap gap-3 items-center">
+        <span class="skill-badge bg-rose-50 text-rose-700">Codeforces max rating 1031</span>
+        <span class="skill-badge bg-rose-50 text-rose-700">VJudge 100+ solved</span>
+        <span class="skill-badge bg-rose-50 text-rose-700">LeetCode 50+ solved</span>
+        <span class="skill-badge bg-rose-50 text-rose-700">Question Setter</span>
       </div>
     </div>
   </section>
 
-  <!-- ===== Education Section (initial) ===== -->
-  <section id="education" class="py-16 bg-gray-50 text-center">
+  <!-- ===== Education Section ===== -->
+  <section id="education" class="py-16 bg-transparent text-center">
     <h3 class="text-3xl font-bold mb-6 text-gray-800">Education</h3>
     <div class="max-w-3xl mx-auto px-4 text-left">
-      <div class="bg-white rounded-2xl p-6 shadow-sm">
-        <h4 class="font-semibold text-xl">Bachelor of Science in Computer Science</h4>
-        <p class="text-sm text-gray-600">University Name — 2020 &ndash; 2024</p>
-        <p class="mt-3 text-gray-700">Focused on software engineering, data structures & algorithms, and web development. Coursework included databases, OS, and machine learning.</p>
+      <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm">
+        <h4 class="font-semibold text-xl">Bachelor's in Software Engineering</h4>
+        <p class="text-sm text-gray-600">Daffodil International University — 07/2024 &ndash; 07/2028</p>
+        <p class="mt-3 text-gray-700">Focused on software engineering fundamentals, problem solving, data structures, algorithms, databases, and practical development workflows.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== Experience Section (initial) ===== -->
-  <section id="experience" class="py-16 bg-white text-center">
+  <!-- ===== Experience Section ===== -->
+  <section id="experience" class="py-16 bg-transparent text-center">
     <h3 class="text-3xl font-bold mb-6 text-gray-800">Experience</h3>
     <div class="max-w-3xl mx-auto px-4 text-left">
-      <div class="bg-gray-50 rounded-2xl p-6 shadow-sm">
-        <h4 class="font-semibold text-xl">Frontend Intern — Example Co.</h4>
-        <p class="text-sm text-gray-600">June 2023 &ndash; Dec 2023</p>
-        <p class="mt-3 text-gray-700">Worked on building accessible UI components, improving performance, and implementing responsive layouts for customer-facing web applications.</p>
+      <div class="bg-gray-50/20 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm">
+        <h4 class="font-semibold text-xl">Instructor &amp; Mentor — DIU Software Engineering Club</h4>
+        <p class="text-sm text-gray-600">2025 &ndash; Present</p>
+        <ul class="mt-3 text-gray-700 space-y-2 list-disc list-inside">
+          <li>Conducted introductory programming logic and problem-solving sessions for junior students.</li>
+          <li>Mentored students in competitive programming and structured problem-solving approaches.</li>
+          <li>Helped build a stronger learning culture through hands-on guidance and support.</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- ===== Certifications Section ===== -->
-  <section id="certifications" class="py-16 bg-gray-50 text-center">
+  <section id="certifications" class="py-16 bg-transparent text-center">
     <h3 class="text-3xl font-bold mb-6 text-gray-800">Certifications</h3>
     <div class="max-w-3xl mx-auto px-4 text-left">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-2xl p-6 shadow-sm">
-          <h4 class="font-semibold text-lg">Google IT Support Professional Certificate</h4>
-          <p class="text-sm text-gray-600">Issued 2024 &mdash; <a href="#" class="text-blue-600 hover:underline">View</a></p>
-          <p class="mt-3 text-gray-700">Practical skills in IT support, troubleshooting, and system administration.</p>
+        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm">
+          <h4 class="font-semibold text-lg">Professional Diploma in Agile and Project Management</h4>
+          <p class="mt-3 text-gray-700">Built a solid foundation in agile delivery, planning, and project coordination.</p>
         </div>
 
-        <div class="bg-white rounded-2xl p-6 shadow-sm">
-          <h4 class="font-semibold text-lg">Frontend Development Certificate</h4>
-          <p class="text-sm text-gray-600">Issued 2023 &mdash; <a href="#" class="text-blue-600 hover:underline">View</a></p>
-          <p class="mt-3 text-gray-700">Coursework on responsive design, accessibility and modern JavaScript.</p>
+        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm">
+          <h4 class="font-semibold text-lg">Mastering C++ Language</h4>
+          <p class="mt-3 text-gray-700">Completed a beginner-friendly course focused on strong C++ programming fundamentals.</p>
+        </div>
+
+        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm">
+          <h4 class="font-semibold text-lg">Crash Course on Algorithms</h4>
+          <p class="mt-3 text-gray-700">Strengthened problem-solving and algorithmic thinking for competitive programming.</p>
+        </div>
+
+        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm">
+          <h4 class="font-semibold text-lg">OOPs in Java Programming</h4>
+          <p class="mt-3 text-gray-700">Learned object-oriented programming concepts through structured Java coursework.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== Projects Section ===== -->
-  <section id="projects" class="py-16 bg-gray-50 text-center">
+  <section id="projects" class="py-16 bg-transparent text-center">
     <h3 class="text-3xl font-bold mb-10 text-gray-800">Projects</h3>
     <div class="flex flex-wrap justify-center gap-8 px-6">
-      <div class="bg-white shadow-md rounded-xl p-6 w-72 hover:-translate-y-1 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2">Portfolio Website</h4>
-        <p class="text-gray-600 text-sm mb-3">A minimalist personal site built using Tailwind CSS and pure HTML.</p>
-        <a href="#" class="text-blue-600 font-medium hover:underline">View Project →</a>
+      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-72 hover:-translate-y-1 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold mb-2">Juice Lab</h4>
+        <p class="text-gray-600 text-sm mb-3">A small business management Android app with multi-device sync and cloud backup, built with Kotlin.</p>
       </div>
-      <div class="bg-white shadow-md rounded-xl p-6 w-72 hover:-translate-y-1 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2">Python Automation</h4>
-        <p class="text-gray-600 text-sm mb-3">Automated data collection and analysis scripts using Python.</p>
-        <a href="#" class="text-blue-600 font-medium hover:underline">View Project →</a>
+      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-72 hover:-translate-y-1 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold mb-2">Chat Bot</h4>
+        <p class="text-gray-600 text-sm mb-3">A Django-based AI chatbot that answers questions about One Piece.</p>
+      </div>
+      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-72 hover:-translate-y-1 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold mb-2">Desk Buddy</h4>
+        <p class="text-gray-600 text-sm mb-3">An ESP32-based robotics project that shows notifications, timers, and different emotions based on the environment and user activity.</p>
+      </div>
+      <div class="bg-white/30 backdrop-blur-sm border border-white/10 shadow-md rounded-xl p-6 w-72 hover:-translate-y-1 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold mb-2">Employee Management System</h4>
+        <p class="text-gray-600 text-sm mb-3">A file-based employee management system built using the C programming language.</p>
       </div>
     </div>
   </section>
 
+  <!-- ===== Blog Section ===== -->
+  <section id="blog" class="py-16 bg-transparent text-center">
+    <h3 class="text-3xl font-bold mb-10 text-gray-800">Latest Writings</h3>
+    <div id="blog-grid" class="flex flex-wrap justify-center gap-8 px-6 max-w-6xl mx-auto mb-10">
+      <div class="text-gray-500 animate-pulse">Loading posts...</div>
+    </div>
+    <div class="text-center">
+      <a href="blog.html" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-full shadow-md hover:shadow-lg transition duration-200">
+        View All Articles
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
   <!-- ===== Awards & Achievements Section ===== -->
-  <section id="awards" class="py-16 bg-white text-center">
+  <section id="awards" class="py-16 bg-transparent text-center">
     <h3 class="text-3xl font-bold mb-6 text-gray-800">Awards &amp; Achievements</h3>
     <div class="max-w-3xl mx-auto px-4 text-left">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-2xl p-6 shadow-sm">
-          <h4 class="font-semibold text-lg">Dean's List — University Name</h4>
-          <p class="text-sm text-gray-600">2023</p>
-          <p class="mt-3 text-gray-700">Recognized for outstanding academic performance and consistent top grades across the Computer Science program.</p>
+        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm">
+          <h4 class="font-semibold text-lg">Top 5 — Intra University Algorithm Contest</h4>
+          <p class="mt-3 text-gray-700">Placed among the top performers in a competitive algorithm contest at university level.</p>
         </div>
 
-        <div class="bg-white rounded-2xl p-6 shadow-sm">
-          <h4 class="font-semibold text-lg">Hackathon Winner — Local Hack Day</h4>
-          <p class="text-sm text-gray-600">2022</p>
-          <p class="mt-3 text-gray-700">Led a small team to build an accessibility-focused web tool and won Best UX award.</p>
+        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm">
+          <h4 class="font-semibold text-lg">Champion — CodeTrap Programming Contest (Summer 2025)</h4>
+          <p class="mt-3 text-gray-700">Won the summer edition of CodeTrap by demonstrating strong problem-solving and consistency.</p>
+        </div>
+
+        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 shadow-sm">
+          <h4 class="font-semibold text-lg">Top 10 — CodeTrap Programming Contest (Spring 2025)</h4>
+          <p class="mt-3 text-gray-700">Earned a top-10 placement in the spring edition of the contest.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== Extracurricular Section ===== -->
-  <section id="extracurricular" class="py-16 bg-gray-50 text-center">
-    <h3 class="text-3xl font-bold mb-6 text-gray-800">Extracurricular Activities</h3>
+  <section id="extracurricular" class="py-16 bg-transparent text-center">
+    <h3 class="text-3xl font-bold mb-6 text-gray-800">Volunteering &amp; Leadership</h3>
     <div class="max-w-3xl mx-auto px-4 text-left">
       <div class="space-y-4">
-        <div class="bg-white rounded-2xl p-4 shadow-sm">
-          <h4 class="font-semibold">Tech Club — President</h4>
-          <p class="text-sm text-gray-600">2022 &ndash; 2024</p>
-          <p class="mt-2 text-gray-700">Organized weekly workshops on web development, mentored junior members, and coordinated campus hackathons.</p>
+        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-4 shadow-sm">
+          <h4 class="font-semibold">ACM Executive — Software Engineering Club (SEC)</h4>
+          <p class="text-sm text-gray-600">2025 &ndash; Present</p>
+          <p class="mt-2 text-gray-700">Volunteered at the DIU BreakOut Algorithm and CodeTrap Programming Contests, assisting with registration, seat allocation, computer setup, technical support, and promotional coordination.</p>
         </div>
 
-        <div class="bg-white rounded-2xl p-4 shadow-sm">
-          <h4 class="font-semibold">Volunteer Tutor — Community Center</h4>
-          <p class="text-sm text-gray-600">2021 &ndash; Present</p>
-          <p class="mt-2 text-gray-700">Provide free tutoring in programming fundamentals and help students prepare for university entrance exams.</p>
+        <div class="bg-white/30 backdrop-blur-sm border border-white/10 rounded-2xl p-4 shadow-sm">
+          <h4 class="font-semibold">Executive Member — Notre Dame Information Technology Club</h4>
+          <p class="text-sm text-gray-600">2022 &ndash; 2023</p>
+          <p class="mt-2 text-gray-700">Successfully organized INIT 3.0 &amp; 4.0, FTMPC, and Pixelcon while collaborating closely with team members to ensure smooth event execution.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== Timeline Section ===== -->
-  <section id="timeline" class="py-16 bg-white text-center">
+  <section id="timeline" class="py-16 bg-transparent text-center">
     <h3 class="text-3xl font-bold mb-10 text-gray-800">Timeline</h3>
     <div class="max-w-2xl mx-auto border-l-4 border-blue-600">
       <div class="mb-8 pl-6 relative">
         <span class="absolute -left-3 top-0 w-5 h-5 bg-blue-600 rounded-full"></span>
-        <h4 class="font-semibold text-lg">2024 – Present</h4>
-        <p class="text-gray-600 text-sm">Exploring AI, backend systems, and open-source development.</p>
+        <h4 class="font-semibold text-lg">2025 – Present</h4>
+        <p class="text-gray-600 text-sm">Serving as an ACM executive, mentoring students, and contributing to programming contests and club activities.</p>
+      </div>
+      <div class="mb-8 pl-6 relative">
+        <span class="absolute -left-3 top-0 w-5 h-5 bg-blue-600 rounded-full"></span>
+        <h4 class="font-semibold text-lg">2024 – 2028</h4>
+        <p class="text-gray-600 text-sm">Studying Software Engineering and expanding skills in algorithms, development, and project building.</p>
       </div>
       <div class="pl-6 relative">
         <span class="absolute -left-3 top-0 w-5 h-5 bg-blue-600 rounded-full"></span>
-        <h4 class="font-semibold text-lg">2022 – 2024</h4>
-        <p class="text-gray-600 text-sm">Started coding journey — focused on Python, C++, and web design.</p>
+        <h4 class="font-semibold text-lg">2022 – 2023</h4>
+        <p class="text-gray-600 text-sm">Started building leadership experience and organizing technical events through the IT club.</p>
       </div>
     </div>
   </section>
@@ -706,7 +780,182 @@
       window.addEventListener('scroll', () => { if (visibleFor) showBadge(visibleFor); }, { passive: true });
       window.addEventListener('resize', () => { if (visibleFor) showBadge(visibleFor); });
     })();
+
+    // --- BLOG INTEGRATION ---
+    const API_BASE_URL = 'http://127.0.0.1:8000';
+
+    async function loadBlogPosts() {
+      const grid = document.getElementById('blog-grid');
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/public/posts/?page_size=3`);
+        const data = await res.json();
+        const posts = data.results || [];
+        
+        if (posts.length === 0) {
+          grid.innerHTML = '<p class="text-gray-500">No blog posts published yet.</p>';
+          return;
+        }
+
+        grid.innerHTML = posts.map(post => {
+          const date = new Date(post.created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+          const coverHtml = post.cover_image 
+            ? `<img src="${post.cover_image}" alt="Cover" class="w-full h-40 object-cover rounded-t-xl mb-4" />`
+            : `<div class="w-full h-40 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-t-xl mb-4 flex items-center justify-center"><svg class="w-10 h-10 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg></div>`;
+            
+          return `
+            <div class="bg-white border border-gray-100 shadow-md rounded-xl p-0 w-80 text-left cursor-pointer hover:-translate-y-1 hover:shadow-xl transition overflow-hidden" onclick="openPostModal('${post.slug}')">
+              ${coverHtml}
+              <div class="px-6 pb-6 pt-2">
+                <span class="text-xs font-semibold text-blue-600 mb-2 block uppercase tracking-wider">${date}</span>
+                <h4 class="text-xl font-bold mb-2 text-gray-800 line-clamp-2">${post.title}</h4>
+                <a href="javascript:void(0)" class="text-blue-600 font-medium hover:underline text-sm inline-flex items-center gap-1 mt-2">
+                  Read Article
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </a>
+              </div>
+            </div>
+          `;
+        }).join('');
+      } catch (err) {
+        grid.innerHTML = '<p class="text-red-500">Failed to load blog posts. Is the backend running?</p>';
+      }
+    }
+
+    async function openPostModal(slug) {
+      const modal = document.getElementById('post-modal');
+      const content = document.getElementById('post-modal-content');
+      
+      content.innerHTML = `
+        <div class="py-20 flex flex-col items-center justify-center text-gray-400">
+          <svg class="animate-spin h-8 w-8 text-blue-500 mb-3" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <p class="text-sm">Loading article...</p>
+        </div>
+      `;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // prevent background scrolling
+
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/public/posts/${slug}/`);
+        const post = await res.json();
+        
+        const date = new Date(post.created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+        const coverHtml = post.cover_image ? `<img src="${post.cover_image}" alt="Cover" class="w-full max-h-96 object-cover rounded-xl mb-8 shadow-sm" />` : '';
+
+        content.innerHTML = `
+          <button onclick="closePostModal()" class="absolute top-4 right-4 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition text-gray-700">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+          </button>
+          <div class="mb-8 mt-4 text-center">
+            <span class="text-sm font-semibold text-blue-600 uppercase tracking-widest">${date}</span>
+            <h2 class="text-3xl md:text-5xl font-bold mt-3 mb-6 text-gray-900">${post.title}</h2>
+          </div>
+          ${coverHtml}
+          <article class="prose prose-lg prose-blue mx-auto">
+            ${post.content}
+          </article>
+        `;
+      } catch (err) {
+        content.innerHTML = `
+          <button onclick="closePostModal()" class="absolute top-4 right-4 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition text-gray-700">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+          </button>
+          <div class="py-12 text-center text-red-500">Failed to load article content.</div>
+        `;
+      }
+    }
+
+    function closePostModal() {
+      const modal = document.getElementById('post-modal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Load posts on init
+    loadBlogPosts();
+
+    // --- CANVAS GRAPH NETWORK BACKGROUND ---
+    (function() {
+      const canvas = document.createElement('canvas');
+      canvas.className = 'fixed inset-0 -z-20 pointer-events-none opacity-40';
+      document.body.appendChild(canvas);
+      const ctx = canvas.getContext('2d');
+      
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+      
+      const particles = [];
+      const maxParticles = window.innerWidth < 768 ? 25 : 65;
+      
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+      
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = (Math.random() - 0.5) * 0.4;
+          this.r = Math.random() * 1.5 + 1;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(99, 102, 241, 0.15)';
+          ctx.fill();
+        }
+      }
+      
+      for(let i = 0; i < maxParticles; i++) {
+        particles.push(new Particle());
+      }
+      
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        for(let i = 0; i < particles.length; i++) {
+          const p1 = particles[i];
+          p1.update();
+          p1.draw();
+          
+          for(let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            
+            if (dist < 110) {
+              ctx.beginPath();
+              ctx.moveTo(p1.x, p1.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(99, 102, 241, ${0.12 * (1 - dist/110)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
   </script>
+
+  <!-- Full-screen Blog Post Modal -->
+  <div id="post-modal" class="fixed inset-0 z-[100] bg-white hidden overflow-y-auto">
+    <div class="max-w-4xl mx-auto px-6 py-12 relative" id="post-modal-content">
+      <!-- Content injected via JS -->
+    </div>
+  </div>
 
 </body>
 </html>
